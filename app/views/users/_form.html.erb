@@ -11,42 +11,32 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="first_name-field">
     <%= form.label :first_name %>
     <%= form.text_field :first_name %>
   </div>
 
-  <div class="field">
+  <div class="last_name-field">
     <%= form.label :last_name %>
     <%= form.text_field :last_name %>
   </div>
 
-  <div class="field">
+  <div class="phone_number-field">
     <%= form.label :phone_number %>
     <%= form.text_field :phone_number %>
   </div>
 
-  <div class="field">
+  <div class="birthday-field">
     <%= form.label :birthday %>
     <%= form.date_select :birthday %>
   </div>
 
-  <div class="field">
+  <div class="email-field">
     <%= form.label :email %>
     <%= form.text_field :email %>
   </div>
 
-  <div class="field">
+  <div class="password-field">
     <%= form.label :password %>
     <%= form.text_field :password %>
   </div>
-
-  <div class="field">
-    <%= form.label :password_digest %>
-    <%= form.text_field :password_digest %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>

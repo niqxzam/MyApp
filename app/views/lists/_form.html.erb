@@ -1,32 +1,22 @@
-<%= form_with(model: list, local: true) do |form| %>
-  <% if list.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(list.errors.count, "error") %> prohibited this list from being saved:</h2>
+<%= form_for(@list, url: lists_path) do |form| %>
 
-      <ul>
-      <% list.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<div class="images-field">
+    <%= form.label :image %>
+    <%= form.file_field :image %>
+  </div>
 
-  <div class="field">
+  <div class="title-field">
     <%= form.label :title %>
     <%= form.text_field :title %>
   </div>
 
-  <div class="field">
+  <div class="description-field">
     <%= form.label :description %>
     <%= form.text_area :description %>
   </div>
 
-  <div class="field">
-    <%= form.label :image %>
-    <%= form.text_field :image %>
-  </div>
-
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Create my list" %>
   </div>
+    
 <% end %>
