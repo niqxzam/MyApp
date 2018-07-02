@@ -10,6 +10,35 @@
   </head>
 
   <body>
-    <%= yield %>
+
+  <div class="container">
+    <%= link_to "My To-Do List", '/', id: "logo" %>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+
+        <%= form_tag(lists_path, :method => "get", id: "search-form") do %>
+          <%= text_field_tag :search, params[:search], placeholder: "Search Lists" %>
+          <%= submit_tag "Search", :name => nil %>
+        <% end %>
+
+        <li><%= link_to "Home", '/' %></li>
+        <li><%= link_to "My Personal List", '/lists' %></li>
+        <% if logged_in? %>
+          <li><%= link_to "Log out", logout_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to "Log in", login_path %></li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+
+
+    <div class="container">
+      <% flash.each do |message_type, message| %>
+          <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>
+      <%= yield %>
+    </div>    
+
   </body>
 </html>
