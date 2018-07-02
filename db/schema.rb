@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_02_150304) do
+ActiveRecord::Schema.define(version: 2018_07_02_151905) do
 
   create_table "authentications", force: :cascade do |t|
     t.string "uid"
@@ -30,6 +30,11 @@ ActiveRecord::Schema.define(version: 2018_07_02_150304) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.index ["user_id"], name: "index_lists_on_user_id"
+  end
+
+  create_table "search_suggestions", force: :cascade do |t|
+    t.string "term"
+    t.integer "popularity"
   end
 
   create_table "users", force: :cascade do |t|
